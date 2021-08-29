@@ -8,6 +8,7 @@ import cors from "cors";
 
 import indexRouter from "./routes/index.js";
 import userRouter from "./routes/users.js";
+import authRouter from "./routes/auth.js";
 
 const app = express();
 dotenv.config();
@@ -20,6 +21,7 @@ app.use(morgan("common"));
 app.use(cors());
 
 app.use("/", indexRouter);
+app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 
 const PORT = process.env.PORT;
