@@ -7,8 +7,9 @@ import morgan from "morgan";
 import cors from "cors";
 
 import indexRouter from "./routes/index.js";
-import userRouter from "./routes/users.js";
 import authRouter from "./routes/auth.js";
+import userRouter from "./routes/users.js";
+import postRouter from "./routes/posts.js";
 
 const app = express();
 dotenv.config();
@@ -23,6 +24,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
+app.use("/api/posts", postRouter);
 
 const PORT = process.env.PORT;
 mongoose.connection.once("open", () => console.log("Connected to Mongoose..."));
