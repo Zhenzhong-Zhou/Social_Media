@@ -3,7 +3,9 @@ import User from "../models/user.js";
 
 // UPDATE User Controller
 export const updateUser = async (req, res) => {
+	// Checkout same user or not
 	if (req.body.userId === req.params.id || req.body.isAdmin) {
+		// Update password
 		if (req.body.password) {
 			try {
 				const salt = await bcrypt.genSalt(12);
@@ -13,6 +15,7 @@ export const updateUser = async (req, res) => {
 			}
 		}
 		try {
+			// Update other user's info
 			await User.findByIdAndUpdate(req.params.id, {$set: req.body});
 			res.status(200).json("Account has been updated!");
 		} catch (error) {
@@ -24,8 +27,10 @@ export const updateUser = async (req, res) => {
 };
 // DELETE User Controller
 export const deleteUser = async (req, res) => {
+	// Checkout same user or not
 	if (req.body.userId === req.params.id || req.body.isAdmin) {
 		try {
+			// Delete user
 			await User.findByIdAndDelete(req.params.id);
 			res.status(200).json("Account has been deleted!");
 		} catch (error) {
@@ -38,6 +43,7 @@ export const deleteUser = async (req, res) => {
 // FIND User Controller
 export const findUser = async (req, res) => {
 	try {
+		// Find specific user's info
 		const user = await User.findById(req.params.id);
 		const {password, updatedAt, ...other} = user._doc;
 		res.status(200).json(other);
@@ -47,10 +53,12 @@ export const findUser = async (req, res) => {
 };
 // FOLLOW User Controller
 export const followUser = async (req, res) => {
+	// Checkout same user or not
 	if (req.body.userId !== req.params.id) {
 		try {
 			const user = await User.findById(req.params.id);
 			const currentUser = await User.findById(req.body.userId);
+			// Checkout user has followed current user or not
 			if (!user.followers.includes(req.body.userId)) {
 				await user.updateOne({$push: {followers: req.body.userId}});
 				await currentUser.updateOne({$push: {followings: req.params.id}});
@@ -67,10 +75,12 @@ export const followUser = async (req, res) => {
 };
 // UNFOLLOW User Controller
 export const unfollowUser = async (req, res) => {
+	// Checkout same user or not
 	if (req.body.userId !== req.params.id) {
 		try {
 			const user = await User.findById(req.params.id);
 			const currentUser = await User.findById(req.body.userId);
+			// Checkout user has unfollowed current user or not
 			if (user.followers.includes(req.body.userId)) {
 				await user.updateOne({$pull: {followers: req.body.userId}});
 				await currentUser.updateOne({$pull: {followings: req.params.id}});

@@ -20,7 +20,6 @@ export const register = async (req, res) => {
 		res.status(500).json(error);
 	}
 };
-
 // LOGIN Controller
 export const login = async (req, res) => {
 	try {
