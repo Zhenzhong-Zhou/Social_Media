@@ -3,16 +3,17 @@ import {Users} from "../../templateData";
 import Status from "../status/Status";
 
 const RightBar = ({profile}) => {
+	const assets = process.env.REACT_APP_PUBLIC_FOLDER;
 	const HomeRightBar = () => {
 		return (
 			<>
 				<div className={"birthdayContainer"}>
-					<img className={"birthdayImg"} src={"/assets/gift.png"} alt={"Birthday"}/>
+					<img className={"birthdayImg"} src={`${assets}gift.png`} alt={"Birthday"}/>
 					<span className={"birthdayText"}>
 						<b>Paul Foster</b> and <b>3 other friends</b> have a birthday today.
 					</span>
 				</div>
-				<img className={"rightBarAd"} src={"/assets/ad.png"} alt={"Ad"}/>
+				<img className={"rightBarAd"} src={`${assets}ad.png`} alt={"Ad"}/>
 				<h4 className={"rightBarTitle"}>Online Friends</h4>
 				<ul className={"rightBarFriendList"}>
 					{Users.map(user => (
@@ -44,7 +45,7 @@ const RightBar = ({profile}) => {
 				<h4 className={"rightBarTitle"}>User Friends</h4>
 				<div className={"rightBarFollowings"}>
 					<div className={"rightBarFollowing"}>
-						<img src={"/assets/person/1.jpeg"} alt={"Following"}  className={"rightBarFollowingImg"}/>
+						<img src={`${assets}person/1.jpeg`} alt={"Following"}  className={"rightBarFollowingImg"}/>
 						<span className={"rightBarFollowingName"}>John Cart</span>
 					</div>
 				</div>
