@@ -1,12 +1,21 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {MoreVert} from "@material-ui/icons";
+import axios from "axios";
 import "./post.css";
-import {Users} from "../../templateData";
 
 const Post = ({post}) => {
-	const [like, setLike] = useState(post.like);
+	const [like, setLike] = useState(post.likes.length);
 	const [isLiked, setIsLiked] = useState(false);
+	const [user, setUser] = useState({});
 	const assets = process.env.REACT_APP_PUBLIC_FOLDER;
+	const url = process.env.REACT_APP_LOCAL_URL;
+	useEffect(() => {
+		const fetchUser = async () => {
+			const {data} = await axios.get(`${url}/users/${post.userId}`);
+			setUser(data);
+		};
+		fetchUser();
+	}, []);
 	const likeHandler = () => {
 		setLike(isLiked ? like - 1 : like + 1);
 		setIsLiked(!isLiked);
@@ -16,8 +25,8 @@ const Post = ({post}) => {
 			<div className={"postWrapper"}>
 				<div className={"postTop"}>
 					<div className={"postTopLeft"}>
-						<img className={"postProfileImg"} src={Users.filter((user) => user.id === post.userId)[0].profilePicture} alt={"Person"}/>
-						<span className={"postUsername"}>{Users.filter((user) => user.id === post.userId)[0].username}</span>
+						<img className={"postProfileImg"} src={user.profilePicture || assets + "person/noAvatar.png"} alt={"Avatar"}/>
+						<span className={"postUsername"}>{user.username}</span>
 						<span className={"postDate"}>{post.date}</span>
 					</div>
 					<div className={"postTopRight"}>
@@ -26,7 +35,7 @@ const Post = ({post}) => {
 				</div>
 				<div className={"postCenter"}>
 					<span className={"postText"}>{post?.desc}</span>
-					<img className={"postImg"} src={assets + post.photo} alt={"Post"}/>
+					<img className={"postImg"} src={assets + post.image} alt={"Post"}/>
 				</div>
 				<div className={"postBottom"}>
 					<div className={"postBottomLeft"}>
