@@ -9,11 +9,18 @@ const Profile = () => {
 				<LeftBar/>
 				<div className={"profileRight"}>
 					<div className={"profileRightTop"}>
-						hello world
+						<div className={"profileCover"}>
+							<img className={"profileCoverImage"} src={"/assets/post/3.jpeg"} alt={"Cover"}/>
+							<img className={"profileUserImage"} src={"/assets/person/7.jpeg"} alt={"Cover"}/>
+						</div>
+						<div className={"profileInfo"}>
+							<h4 className={"profileInfoName"}>Andy</h4>
+							<span className={"profileInfoDesc"}>Description</span>
+						</div>
 					</div>
 					<div className={"profileRightBottom"}>
 						<Feed/>
-						<RightBar/>
+						<RightBar profile/>
 					</div>
 				</div>
 			</div>
