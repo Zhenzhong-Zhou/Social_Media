@@ -46,69 +46,7 @@ const LeftBar = () => {
 				<button className={"leftBarButton"}>Show More</button>
 				<hr className={"leftBarHr"}/>
 				<ul className={"leftBarFriendList"}>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<br/>
-					// Removed below later
-					<br/><br/><br/><br/>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
-					<li className={"leftBarFiend"}>
-						<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-						<span className={"leftBarFriendName"}>Steven Jobs</span>
-					</li>
+
 				</ul>
 			</div>
 		</div>
