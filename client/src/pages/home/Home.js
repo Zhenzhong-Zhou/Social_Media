@@ -1,9 +1,14 @@
-import TopBar from "../../components/topbar/TopBar";
+import {Feed, LeftBar, RightBar, TopBar} from "../../components";
 
 const Home = () => {
 	return (
-		<TopBar/>
+		<>
+			<TopBar/>
+			<LeftBar/>
+			<RightBar/>
+			<Feed/>
+		</>
 	);
-}
+};
 
 export default Home;
