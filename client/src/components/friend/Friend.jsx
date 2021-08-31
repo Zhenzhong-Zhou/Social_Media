@@ -1,10 +1,10 @@
 import "./friend.css";
 
-const Friend = () => {
+const Friend = ({user}) => {
 	return (
 		<li className={"leftBarFiend"}>
-			<img className={"leftBarFriendImg"} src={"/assets/person/2.jpeg"} alt={"LeftBar Friend"}/>
-			<span className={"leftBarFriendName"}>Steven Jobs</span>
+			<img className={"leftBarFriendImg"} src={user.profilePicture} alt={"LeftBar Friend"}/>
+			<span className={"leftBarFriendName"}>{user.username}</span>
 		</li>
 	);
 };

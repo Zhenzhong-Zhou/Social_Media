@@ -1,5 +1,7 @@
 import "./leftbar.css";
 import {Bookmarks, Chat, Event, Group, HelpOutline, PlayCircleFilledOutlined, RssFeed, School, WorkOutline} from "@material-ui/icons";
+import {Users} from "../../templateData";
+import Friend from "../friend/Friend";
 
 const LeftBar = () => {
 	return (
@@ -46,7 +48,9 @@ const LeftBar = () => {
 				<button className={"leftBarButton"}>Show More</button>
 				<hr className={"leftBarHr"}/>
 				<ul className={"leftBarFriendList"}>
-
+					{Users.map((user) => (
+						<Friend key={user.id} user={user}/>
+					))}
 				</ul>
 			</div>
 		</div>
