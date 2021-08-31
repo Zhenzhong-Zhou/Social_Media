@@ -2,7 +2,7 @@ import "./righbar.css";
 
 const RightBar = () => {
 	return (
-		<div>
+		<div className={"rightBar"}>
 			RightBar
 		</div>
 	);

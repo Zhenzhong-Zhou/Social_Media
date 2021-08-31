@@ -1,12 +1,15 @@
 import {Feed, LeftBar, RightBar, TopBar} from "../../components";
+import "./home.css";
 
 const Home = () => {
 	return (
 		<>
 			<TopBar/>
-			<LeftBar/>
-			<RightBar/>
-			<Feed/>
+			<div className={"homeContainer"}>
+				<LeftBar/>
+				<Feed/>
+				<RightBar/>
+			</div>
 		</>
 	);
 };

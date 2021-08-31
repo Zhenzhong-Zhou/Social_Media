@@ -1,9 +1,12 @@
 import "./feed.css";
+import Share from "../share/Share";
 
 const Feed = () => {
 	return (
-		<div>
-			Feed
+		<div className={"feed"}>
+			<div className={"feedWrapper"}>
+				<Share/>
+			</div>
 		</div>
 	);
 };
