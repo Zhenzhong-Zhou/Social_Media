@@ -14,6 +14,6 @@ router.put("/:id/like", likePost);
 // Find post route
 router.get("/:id", findPost);
 // Find timeline posts route
-router.get("/timeline/all", timelinePost);
+router.get("/timeline/:userId", timelinePost);
 
 export default router;
