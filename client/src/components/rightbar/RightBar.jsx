@@ -1,4 +1,6 @@
 import "./righbar.css";
+import {Users} from "../../templateData";
+import Status from "../status/Status";
 
 const RightBar = () => {
 	return (
@@ -13,45 +15,9 @@ const RightBar = () => {
 				<img className={"rightBarAd"} src={"/assets/ad.png"} alt={"Ad"}/>
 				<h4 className={"rightBarTitle"}>Online Friends</h4>
 				<ul className={"rightBarFriendList"}>
-					<li className={"rightBarFriend"}>
-						<div className={"rightBarProfileImgContainer"}>
-							<img className={"rightBarProfileImg"} src={"/assets/person/3.jpeg"} alt={"Profile"}/>
-							<span className={"rightBarOnline"}></span>
-						</div>
-						<span className={"rightBarUsername"}>John Cart</span>
-					</li>
-					// Removed below items later <br/><br/><br/><br/><br/><br/>
-					<li className={"rightBarFriend"}>
-						<div className={"rightBarProfileImgContainer"}>
-							<img className={"rightBarProfileImg"} src={"/assets/person/3.jpeg"} alt={"Profile"}/>
-							<span className={"rightBarOnline"}></span>
-						</div>
-						<span className={"rightBarUsername"}>John Cart</span>
-					</li><li className={"rightBarFriend"}>
-					<div className={"rightBarProfileImgContainer"}>
-						<img className={"rightBarProfileImg"} src={"/assets/person/3.jpeg"} alt={"Profile"}/>
-						<span className={"rightBarOnline"}></span>
-					</div>
-					<span className={"rightBarUsername"}>John Cart</span>
-				</li><li className={"rightBarFriend"}>
-					<div className={"rightBarProfileImgContainer"}>
-						<img className={"rightBarProfileImg"} src={"/assets/person/3.jpeg"} alt={"Profile"}/>
-						<span className={"rightBarOnline"}></span>
-					</div>
-					<span className={"rightBarUsername"}>John Cart</span>
-				</li><li className={"rightBarFriend"}>
-					<div className={"rightBarProfileImgContainer"}>
-						<img className={"rightBarProfileImg"} src={"/assets/person/3.jpeg"} alt={"Profile"}/>
-						<span className={"rightBarOnline"}></span>
-					</div>
-					<span className={"rightBarUsername"}>John Cart</span>
-				</li><li className={"rightBarFriend"}>
-					<div className={"rightBarProfileImgContainer"}>
-						<img className={"rightBarProfileImg"} src={"/assets/person/3.jpeg"} alt={"Profile"}/>
-						<span className={"rightBarOnline"}></span>
-					</div>
-					<span className={"rightBarUsername"}>John Cart</span>
-				</li>
+					{Users.map(user => (
+						<Status key={user.id} user={user}/>
+					))}
 				</ul>
 			</div>
 		</div>
