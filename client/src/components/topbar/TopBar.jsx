@@ -1,11 +1,14 @@
 import {Chat, Notifications, Person, Search} from "@material-ui/icons";
+import {Link} from "react-router-dom";
 import "./topbar.css";
 
 const TopBar = () => {
 	return (
 		<div className={"topBarContainer"}>
 			<div className={"topBarLeft"}>
-				<span className={"logo"}>Facebook</span>
+				<Link to={"/"} style={{textDecoration: "none"}}>
+					<span className={"logo"}>Facebook</span>
+				</Link>
 			</div>
 			<div className={"topBarCenter"}>
 				<div className={"searchBar"}>
