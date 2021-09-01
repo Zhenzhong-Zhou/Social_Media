@@ -1,15 +1,14 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import Share from "../share/Share";
 import Post from "../post/Post";
 import "./feed.css";
+import {axiosInstance} from "../../api";
 
 const Feed = () => {
 	const [posts, setPosts] = useState([]);
-	const url = process.env.REACT_APP_LOCAL_URL;
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const {data} = await axios.get(`${url}/posts/timeline/612c37ac13c2fb01aad9d943`);
+			const {data} = await axiosInstance.get("api/posts/timeline/612c37ac13c2fb01aad9d943");
 			setPosts(data);
 		};
 		fetchPosts();
@@ -19,7 +18,7 @@ const Feed = () => {
 			<div className={"feedWrapper"}>
 				<Share/>
 				{posts.map((post) => (
-					<Post key={post.id} post={post}/>
+					<Post key={post._id} post={post}/>
 				))}
 			</div>
 		</div>
