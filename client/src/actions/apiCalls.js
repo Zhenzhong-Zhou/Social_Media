@@ -1,5 +1,5 @@
-import {LOGIN_FAILURE, LOGIN_START, LOGIN_SUCCESS} from "./constants/actionsTypes";
-import {axiosInstance} from "./api";
+import {LOGIN_FAILURE, LOGIN_START, LOGIN_SUCCESS} from "../constants/actionsTypes";
+import {axiosInstance} from "../api";
 
 export const loginCall = async (userCredentials, dispatch) => {
 	dispatch({type: LOGIN_START});
