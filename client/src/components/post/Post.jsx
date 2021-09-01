@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {MoreVert} from "@material-ui/icons";
+import moment from "moment";
 import "./post.css";
 import {axiosInstance} from "../../api";
 
@@ -18,7 +19,7 @@ const Post = ({post}) => {
 			setUser(data);
 		}
 		fetchUser();
-	}, []);
+	}, [post.userId]);
 
 	return (
 		<div className={"post"}>
@@ -27,7 +28,7 @@ const Post = ({post}) => {
 					<div className={"postTopLeft"}>
 						<img className={"postProfileImg"} src={user.profilePicture || assets + "person/noAvatar.png"} alt={"Avatar"}/>
 						<span className={"postUsername"}>{user.username}</span>
-						<span className={"postDate"}>{post.date}</span>
+						<span className={"postDate"}>{moment(post.date).fromNow()}</span>
 					</div>
 					<div className={"postTopRight"}>
 						<MoreVert/>
