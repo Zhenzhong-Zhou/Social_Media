@@ -28,7 +28,7 @@ const Post = ({post}) => {
 				<div className={"postTop"}>
 					<div className={"postTopLeft"}>
 						<Link to={`profile/${user.username}`}>
-							<img className={"postProfileImg"} src={user.profilePicture || assets + "person/noAvatar.png"} alt={"Avatar"}/>
+							<img className={"postProfileImg"} src={user.profilePicture ? assets + user.profilePicture : assets + "person/noAvatar.png"} alt={"Avatar"}/>
 						</Link>
 						<span className={"postUsername"}>{user.username}</span>
 						<span className={"postDate"}>{moment(post.createdAt).fromNow()}</span>
