@@ -2,7 +2,7 @@ import "./righbar.css";
 import {Users} from "../../templateData";
 import Status from "../status/Status";
 
-const RightBar = ({profile}) => {
+const RightBar = ({user}) => {
 	const assets = process.env.REACT_APP_PUBLIC_FOLDER;
 	const HomeRightBar = () => {
 		return (
@@ -31,15 +31,17 @@ const RightBar = ({profile}) => {
 				<div className={"rightBarInfo"}>
 					<div className={"rightBarInfoItem"}>
 						<span className={"rightBarInfoKey"}>City: </span>
-						<span className={"rightBarInfoValue"}>Saskatoon</span>
+						<span className={"rightBarInfoValue"}>{user.city}</span>
 					</div>
 					<div className={"rightBarInfoItem"}>
 						<span className={"rightBarInfoKey"}>From: </span>
-						<span className={"rightBarInfoValue"}>China</span>
+						<span className={"rightBarInfoValue"}>{user.from}</span>
 					</div>
 					<div className={"rightBarInfoItem"}>
 						<span className={"rightBarInfoKey"}>Relationship: </span>
-						<span className={"rightBarInfoValue"}>Single</span>
+						<span className={"rightBarInfoValue"}>
+							{user.relationship === 1 ? "Single" : user.relationship === 2 ? "Married" : "-"}
+						</span>
 					</div>
 				</div>
 				<h4 className={"rightBarTitle"}>User Friends</h4>
@@ -56,7 +58,7 @@ const RightBar = ({profile}) => {
 	return (
 		<div className={"rightBar"}>
 			<div className={"rightBarWrapper"}>
-				{profile ? <ProfileRightBar/> : <HomeRightBar/>}
+				{user ? <ProfileRightBar/> : <HomeRightBar/>}
 			</div>
 		</div>
 	);
