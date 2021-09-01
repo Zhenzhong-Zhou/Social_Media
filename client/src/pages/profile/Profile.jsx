@@ -7,10 +7,13 @@ const Profile = () => {
 	const assets = process.env.REACT_APP_PUBLIC_FOLDER;
 	const [user, setUser] = useState({});
 	useEffect(() => {
-		const fetchPost = async () => {
-
+		const fetchUser = async () => {
+			const {data} = await axiosInstance.get(`/users?username=Andy`);
+			console.log(user.description)
+			console.log("1212")
+			setUser(data);
 		}
-		fetchPost();
+		fetchUser();
 	}, []);
 
 	return (
@@ -25,8 +28,8 @@ const Profile = () => {
 							<img className={"profileUserImage"} src={`${assets}person/7.jpeg`} alt={"Cover"}/>
 						</div>
 						<div className={"profileInfo"}>
-							<h4 className={"profileInfoName"}>Andy</h4>
-							<span className={"profileInfoDesc"}>Description</span>
+							<h4 className={"profileInfoName"}>{user.username}</h4>
+							<span className={"profileInfoDesc"}>{user.description}</span>
 						</div>
 					</div>
 					<div className={"profileRightBottom"}>

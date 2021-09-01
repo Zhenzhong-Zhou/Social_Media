@@ -46,7 +46,7 @@ export const findUser = async (req, res) => {
 	const username = req.query.username;
 	try {
 		// Find specific user's info
-		const user = userId ? await User.findById(req.params.id) : await User.findOne({username});
+		const user = userId ? await User.findById(userId) : await User.findOne({username});
 		const {password, updatedAt, ...other} = user._doc;
 		res.status(200).json(other);
 	} catch (error) {
