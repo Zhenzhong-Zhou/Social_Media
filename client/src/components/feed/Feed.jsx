@@ -3,18 +3,6 @@ import Share from "../share/Share";
 import Post from "../post/Post";
 import "./feed.css";
 import {axiosInstance} from "../../api";
-<<<<<<< HEAD
-
-const Feed = () => {
-	const [posts, setPosts] = useState([]);
-	useEffect(() => {
-		const fetchPosts = async () => {
-			const {data} = await axiosInstance.get("api/posts/timeline/612c37ac13c2fb01aad9d943");
-			setPosts(data);
-		};
-		fetchPosts();
-	}, []);
-=======
 
 const Feed = ({username}) => {
 	const [posts, setPosts] = useState([]);
@@ -28,7 +16,6 @@ const Feed = ({username}) => {
 		fetchPost();
 	}, [username]);
 
->>>>>>> debug1
 	return (
 		<div className={"feed"}>
 			<div className={"feedWrapper"}>

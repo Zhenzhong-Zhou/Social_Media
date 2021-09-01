@@ -1,28 +1,15 @@
 import {useEffect, useState} from "react";
 import {MoreVert} from "@material-ui/icons";
 import moment from "moment";
-<<<<<<< HEAD
-import "./post.css";
-import {axiosInstance} from "../../api";
-import {Link} from "react-router-dom";
-=======
 import {Link} from "react-router-dom";
 import "./post.css";
 import {axiosInstance} from "../../api";
->>>>>>> debug1
 
 const Post = ({post}) => {
 	const [like, setLike] = useState(post.likes.length);
 	const [isLiked, setIsLiked] = useState(false);
 	const [user, setUser] = useState({});
 	const assets = process.env.REACT_APP_PUBLIC_FOLDER;
-	useEffect(() => {
-		const fetchUser = async () => {
-			const {data} = await axiosInstance.get(`api/users/${post.userId}`);
-			setUser(data);
-		};
-		fetchUser();
-	}, [post.userId]);
 	const likeHandler = () => {
 		setLike(isLiked ? like - 1 : like + 1);
 		setIsLiked(!isLiked);
@@ -44,11 +31,7 @@ const Post = ({post}) => {
 							<img className={"postProfileImg"} src={user.profilePicture || assets + "person/noAvatar.png"} alt={"Avatar"}/>
 						</Link>
 						<span className={"postUsername"}>{user.username}</span>
-<<<<<<< HEAD
 						<span className={"postDate"}>{moment(post.createdAt).fromNow()}</span>
-=======
-						<span className={"postDate"}>{moment(post.date).fromNow()}</span>
->>>>>>> debug1
 					</div>
 					<div className={"postTopRight"}>
 						<MoreVert/>
