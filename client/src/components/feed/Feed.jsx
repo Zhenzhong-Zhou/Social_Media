@@ -4,15 +4,17 @@ import Post from "../post/Post";
 import "./feed.css";
 import {axiosInstance} from "../../api";
 
-const Feed = () => {
+const Feed = ({username}) => {
 	const [posts, setPosts] = useState([]);
 	useEffect(() => {
 		const fetchPost = async () => {
-			const {data} = await axiosInstance.get("posts/timeline/612c3721373f38d180dbbd23");
+			const {data} = username
+				? await axiosInstance.get("posts/profile/" + username)
+				: await axiosInstance.get("posts/timeline/612c3721373f38d180dbbd23");
 			setPosts(data);
 		}
 		fetchPost();
-	}, []);
+	}, [username]);
 
 	return (
 		<div className={"feed"}>

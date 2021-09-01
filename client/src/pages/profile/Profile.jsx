@@ -20,7 +20,7 @@ const Profile = () => {
 						</div>
 					</div>
 					<div className={"profileRightBottom"}>
-						<Feed/>
+						<Feed username={"Andy"}/>
 						<RightBar profile/>
 					</div>
 				</div>

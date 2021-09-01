@@ -3,6 +3,7 @@ import {MoreVert} from "@material-ui/icons";
 import moment from "moment";
 import "./post.css";
 import {axiosInstance} from "../../api";
+import {Link} from "react-router-dom";
 
 const Post = ({post}) => {
 	const [like, setLike] = useState(post.likes.length);
@@ -26,7 +27,9 @@ const Post = ({post}) => {
 			<div className={"postWrapper"}>
 				<div className={"postTop"}>
 					<div className={"postTopLeft"}>
-						<img className={"postProfileImg"} src={user.profilePicture || assets + "person/noAvatar.png"} alt={"Avatar"}/>
+						<Link to={`profile/${user.username}`}>
+							<img className={"postProfileImg"} src={user.profilePicture || assets + "person/noAvatar.png"} alt={"Avatar"}/>
+						</Link>
 						<span className={"postUsername"}>{user.username}</span>
 						<span className={"postDate"}>{moment(post.date).fromNow()}</span>
 					</div>
