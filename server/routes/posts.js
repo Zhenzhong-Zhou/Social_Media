@@ -1,5 +1,13 @@
 import express from "express";
-import {createPosts, updatePost, deletePost, likePost, findPost, timelinePost} from "../controllers/posts.js";
+import {
+	createPosts,
+	updatePost,
+	deletePost,
+	likePost,
+	findPost,
+	timelinePost,
+	profilePost
+} from "../controllers/posts.js";
 
 const router = express.Router();
 
@@ -15,5 +23,8 @@ router.put("/:id/like", likePost);
 router.get("/:id", findPost);
 // Find timeline posts route
 router.get("/timeline/:userId", timelinePost);
+// Find user's profile posts route
+router.get("/profile/:username", profilePost);
+
 
 export default router;
