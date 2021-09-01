@@ -7,7 +7,7 @@ router.put("/:id", updateUser);
 // Delete user route
 router.delete("/:id", deleteUser);
 // Find user route
-router.get("/:id", findUser);
+router.get("/", findUser);
 // Follow user route
 router.put("/:id/follow", followUser);
 // Unfollow user route

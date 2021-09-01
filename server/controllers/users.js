@@ -42,9 +42,11 @@ export const deleteUser = async (req, res) => {
 }
 // FIND User Controller
 export const findUser = async (req, res) => {
+	const userId = req.query.userId;
+	const username = req.query.username;
 	try {
 		// Find specific user's info
-		const user = await User.findById(req.params.id);
+		const user = userId ? await User.findById(req.params.id) : await User.findOne({username});
 		const {password, updatedAt, ...other} = user._doc;
 		res.status(200).json(other);
 	} catch (error) {

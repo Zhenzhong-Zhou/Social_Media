@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 import {MoreVert} from "@material-ui/icons";
 import moment from "moment";
+import {Link} from "react-router-dom";
 import "./post.css";
 import {axiosInstance} from "../../api";
-import {Link} from "react-router-dom";
 
 const Post = ({post}) => {
 	const [like, setLike] = useState(post.likes.length);

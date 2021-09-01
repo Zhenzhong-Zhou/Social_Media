@@ -1,8 +1,18 @@
+import {useEffect, useState} from "react";
 import "./profile.css";
 import {Feed, LeftBar, RightBar, TopBar} from "../../components";
+import {axiosInstance} from "../../api";
 
 const Profile = () => {
 	const assets = process.env.REACT_APP_PUBLIC_FOLDER;
+	const [user, setUser] = useState({});
+	useEffect(() => {
+		const fetchPost = async () => {
+
+		}
+		fetchPost();
+	}, []);
+
 	return (
 		<>
 			<TopBar/>
