@@ -3,12 +3,13 @@ import {Link} from "react-router-dom";
 import {Add, Remove} from "@material-ui/icons";
 import {axiosInstance} from "../../../api";
 import {AuthContext} from "../../../context/AuthContext";
+import {FOLLOW, UNFOLLOW} from "../../../constants/actionsTypes";
 
 const ProfileRightBar = ({user}) => {
 	const assets = process.env.REACT_APP_PUBLIC_FOLDER;
 	const [friends, serFriends] = useState([]);
-	const {user: currenUser} = useContext(AuthContext);
-	const [followed, setFollowed] = useState(false);
+	const {user: currenUser, dispatch} = useContext(AuthContext);
+	const [followed, setFollowed] = useState(currenUser.followings.includes(user?.id));
 
 	useEffect(() => {
 		const fetchFriends = async () => {
@@ -23,16 +24,18 @@ const ProfileRightBar = ({user}) => {
 	}, [user._id]);
 
 	useEffect(() => {
-		setFollowed(currenUser.followings.includes(user?._id));
-	}, [currenUser, user._id]);
+		setFollowed(currenUser.followings.includes(user?.id));
+	}, [currenUser, user.id]);
 
 
 	const handleClick = async () => {
 		try {
 			if (followed) {
-				await axiosInstance.put(`/users/${user._id}/follow`, {userId: currenUser._id});
-			} else {
 				await axiosInstance.put(`/users/${user._id}/unfollow`, {userId: currenUser._id});
+				dispatch({type: UNFOLLOW, payload: user._id});
+			} else {
+				await axiosInstance.put(`/users/${user._id}/follow`, {userId: currenUser._id});
+				dispatch({type: FOLLOW, payload: user._id});
 			}
 		} catch (error) {
 			console.log(error);
