@@ -10,10 +10,7 @@ const Post = ({post}) => {
 	const [isLiked, setIsLiked] = useState(false);
 	const [user, setUser] = useState({});
 	const assets = process.env.REACT_APP_PUBLIC_FOLDER;
-	const likeHandler = () => {
-		setLike(isLiked ? like - 1 : like + 1);
-		setIsLiked(!isLiked);
-	};
+
 	useEffect(() => {
 		const fetchUser = async () => {
 			const {data} = await axiosInstance.get(`users?userId=${post.userId}`);
@@ -21,6 +18,11 @@ const Post = ({post}) => {
 		}
 		fetchUser();
 	}, [post.userId]);
+
+	const likeHandler = () => {
+		setLike(isLiked ? like - 1 : like + 1);
+		setIsLiked(!isLiked);
+	};
 
 	return (
 		<div className={"post"}>
