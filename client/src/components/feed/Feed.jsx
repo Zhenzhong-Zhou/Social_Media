@@ -14,7 +14,9 @@ const Feed = ({username}) => {
 			const {data} = username
 				? await axiosInstance.get(`posts/profile/${username}`)
 				: await axiosInstance.get(`posts/timeline/${user._id}`);
-			setPosts(data);
+			setPosts(data.sort((post1, post2) => {
+				return new Date(post2.createdAt) - new Date(post1. createdAt);
+			}));
 		}
 		fetchPost();
 	}, [username, user._id]);
