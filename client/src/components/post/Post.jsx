@@ -50,8 +50,8 @@ const Post = ({post}) => {
 					</div>
 				</div>
 				<div className={"postCenter"}>
-					<span className={"postText"}>{post?.desc}</span>
-					<img className={"postImg"} src={assets + post.image} alt={"Post"}/>
+					<span className={"postText"}>{post?.description}</span>
+					<img className={"postImg"} src={assets + post?.image} alt={"Post"}/>
 				</div>
 				<div className={"postBottom"}>
 					<div className={"postBottomLeft"}>

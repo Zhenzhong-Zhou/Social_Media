@@ -16,10 +16,11 @@ const Share = () => {
 			userId: user._id,
 			description: description.current.value
 		};
+
 		try {
 			await axiosInstance.post("posts", newPost);
 		} catch (error) {
-
+			console.log(error);
 		}
 	};
 
