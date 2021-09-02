@@ -1,21 +1,43 @@
-import "./share.css";
+import {useContext, useRef, useState} from "react";
 import {EmojiEmotions, Label, PermMedia, Room} from "@material-ui/icons";
+import "./share.css";
+import {AuthContext} from "../../context/AuthContext";
+import {axiosInstance} from "../../api";
 
 const Share = () => {
+	const assets = process.env.REACT_APP_PUBLIC_FOLDER;
+	const {user} = useContext(AuthContext);
+	const description = useRef();
+	const [file, setFile] = useState(null);
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		const newPost = {
+			userId: user._id,
+			description: description.current.value
+		};
+		try {
+			await axiosInstance.post("posts", newPost);
+		} catch (error) {
+
+		}
+	};
+
 	return (
 		<div className={"share"}>
 			<div className={"shareWrapper"}>
 				<div className={"shareTop"}>
-					<img className={"shareProfileImg"} src={"/assets/person/1.jpeg"} alt={"Person"}/>
-					<input placeholder={"What's in your mind Andy?"} className={"shareInput"}/>
+					<img className={"shareProfileImg"} src={user.profilePicture ? assets + user.profilePicture : assets + "person/noAvatar.png"} alt={"Avatar"}/>
+					<input placeholder={`What's in your mind ${user.username}?`} className={"shareInput"} ref={description}/>
 				</div>
 				<hr className={"shareHr"}/>
-				<div className={"shareBottom"}>
+				<form className={"shareBottom"} onSubmit={handleSubmit}>
 					<div className={"shareOptions"}>
-						<div className={"shareOption"}>
+						<label htmlFor={"file"} className={"shareOption"}>
 							<PermMedia htmlColor={"tomato"} className={"shareIcon"}/>
 							<span className={"shareOptionText"}>Photo or Video</span>
-						</div>
+							<input style={{display: "none"}} type={"file"} id={"file"} accept={".jpg,.png,.gif,.webp,.tiff,.raw,.jepg200"} onChange={event => setFile(event.target.files[0])}/>
+						</label>
 						<div className={"shareOption"}>
 							<Label htmlColor={"blue"} className={"shareIcon"}/>
 							<span className={"shareOptionText"}>Tags</span>
@@ -29,8 +51,8 @@ const Share = () => {
 							<span className={"shareOptionText"}>Feelings</span>
 						</div>
 					</div>
-					<button className={"shareButton"}>Share</button>
-				</div>
+					<button className={"shareButton"} type={"submit"}>Share</button>
+				</form>
 			</div>
 		</div>
 	);
