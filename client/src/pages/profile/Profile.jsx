@@ -24,8 +24,8 @@ const Profile = () => {
 				<div className={"profileRight"}>
 					<div className={"profileRightTop"}>
 						<div className={"profileCover"}>
-							<img className={"profileCoverImage"} src={user.coverPicture || assets + "person/noCover.png"} alt={"Cover"}/>
-							<img className={"profileUserImage"} src={user.profilePicture || assets + "person/noAvatar.png"} alt={"Cover"}/>
+							<img className={"profileCoverImage"} src={user.coverPicture ? assets + user.coverPicture : assets + "person/noCover.png"} alt={"Cover"}/>
+							<img className={"profileUserImage"} src={user.profilePicture ? assets + user.profilePicture : assets + "person/noAvatar.png"} alt={"Avatar"}/>
 						</div>
 						<div className={"profileInfo"}>
 							<h4 className={"profileInfoName"}>{user.username}</h4>
